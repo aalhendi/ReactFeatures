@@ -41,9 +41,24 @@
     text-align: center;
 }
 
-.paint-image{
+#home-image{
     display: block;
     margin-right: auto;
     margin-left: auto;
-    width: 50%;
+    width: 75%;
+}
+
+.product-image {
+    padding: 10px;
+    width: 200px;
+    height: 250px;
+}
+.caption {
+    text-align: center;
+}
+
+.list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
