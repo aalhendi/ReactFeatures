@@ -53,12 +53,25 @@
     width: 200px;
     height: 250px;
 }
-.caption {
+.product {
     text-align: center;
 }
 
 .list {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(4, auto) 
+}
+
+@media only screen and (max-width: 600px) {
+    .list {
+        display: grid;
+        grid-template-columns: repeat(2, auto) 
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .list {
+        display: grid;
+        grid-template-columns: repeat(1, auto) 
+    }
 }
