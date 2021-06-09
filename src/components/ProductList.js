@@ -1,17 +1,18 @@
 import products from "../products.js";
 import ProductItem from "./ProductItem.js";
+import { ListWrapper } from "../styles.js";
 
 const ProductList = () => {
-    const productList = products.map((product) => (
-        <ProductItem
-            name={product.name}
-            price={product.price}
-            image={product.image}
-            key={product.id}
-        />
-    ));
+  const productList = products.map((product) => (
+    <ProductItem
+      name={product.name}
+      price={product.price}
+      image={product.image}
+      key={product.id}
+    />
+  ));
 
-    return <div className="list">{productList}</div>;
+  return <ListWrapper>{productList}</ListWrapper>;
 };
 
 export default ProductList;
