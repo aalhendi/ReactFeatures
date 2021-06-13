@@ -39,6 +39,10 @@ export const SearchBarStyled = styled.input`
   margin: 1rem auto;
   display: block;
   width: 40%;
+  border-radius: 40px;
+  border: 2px solid ${(props) => props.theme.mainColor};
+  background-color: ${(props) => props.theme.backgroundColor};
+  color: ${(props) => props.theme == "light" ? "#FFFFFF" : "#000000"};
 `;
 
 export const ShopImage = styled.img`
