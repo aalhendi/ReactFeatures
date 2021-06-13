@@ -6,17 +6,26 @@ import SearchBar from "./SearchBar";
 // Data
 import products from "../products";
 
-const ProductList = () => {
-  const productList = products.map((product) => (
-    <ProductItem product={product} key={product.id} />
-  ));
+//useState
+import { useState } from "react";
 
-  return (
-    <>
-      <SearchBar />
-      <ListWrapper>{productList}</ListWrapper>
-    </>
-  );
+const ProductList = () => {
+    const [query, setQuery] = useState("");
+
+    const productList = products
+        .filter(
+            (product) =>
+                product.name.toLocaleLowerCase().includes(query) ||
+                product.price.toString().includes(query)
+        )
+        .map((product) => <ProductItem product={product} key={product.id} />);
+
+    return (
+        <div>
+            <SearchBar setQuery={setQuery} />
+            <ListWrapper>{productList}</ListWrapper>
+        </div>
+    );
 };
 
 export default ProductList;
