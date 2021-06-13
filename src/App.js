@@ -29,13 +29,13 @@ function App() {
             ? setTheme(theme.light)
             : setTheme(theme.dark);
     };
-    const themeButtonText =
-        currentTheme === theme.dark ? "Light Mode" : "Dark Mode";
 
     return (
         <ThemeProvider theme={currentTheme}>
             <GlobalStyle />
-            <ThemeButton onClick={toggleTheme}>{themeButtonText}</ThemeButton>
+            <ThemeButton onClick={toggleTheme}>
+                {currentTheme === theme.light ? "Dark Mode" : "Light Mode"}
+            </ThemeButton>
             <Home />
             <CookieList />
         </ThemeProvider>
