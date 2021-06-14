@@ -16,8 +16,16 @@ export const DetailWrapper = styled.div`
   }
 
   p {
+    text-align: center; 
     vertical-align: middle;
   }
+
+  button {
+  display: block;
+  margin: 0 auto;
+  width: 200px
+  }
+
 `;
 
 export const GlobalStyle = createGlobalStyle`
