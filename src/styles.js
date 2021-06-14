@@ -16,16 +16,15 @@ export const DetailWrapper = styled.div`
   }
 
   p {
-    text-align: center; 
+    text-align: center;
     vertical-align: middle;
   }
 
   button {
-  display: block;
-  margin: 0 auto;
-  width: 200px
+    display: block;
+    margin: 0 auto;
+    width: 200px;
   }
-
 `;
 
 export const GlobalStyle = createGlobalStyle`
@@ -83,4 +82,12 @@ export const ThemeButton = styled.button`
 
 export const Title = styled.h1`
   text-align: center;
+`;
+
+export const DeleteButtonStyled = styled.button`
+  button {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+  }
 `;
