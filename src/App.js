@@ -5,11 +5,12 @@ import { GlobalStyle } from "./styles";
 import Home from "./components/Home";
 import ProductList from "./components/ProductList";
 import NavBar from "./components/NavBar.js";
+import ProductDetail from "./components/ProductDetail.js";
 
 //Imports
 import { ThemeProvider } from "styled-components";
 import { useState } from "react";
-import { Route, Switch} from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 // Data
 import products from "./products";
@@ -48,6 +49,9 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
+        <Route path="/products/:productSlug">
+          <ProductDetail products={_products} deleteProduct={deleteProduct} />
+      </Route>
         <Route path="/products">
           <ProductList products={_products} deleteProduct={deleteProduct} />
         </Route>
