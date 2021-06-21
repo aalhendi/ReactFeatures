@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components";
+import { Link, NavLink } from "react-router-dom";
 
 export const Description = styled.h4`
   text-align: center;
@@ -73,7 +74,6 @@ export const ShopImage = styled.img`
 
 export const ThemeButton = styled.button`
   font-size: 1em;
-  margin: 1.25em;
   padding: 0.25em 1em;
   border-radius: 3px;
   background-color: ${(props) => props.theme.mainColor};
@@ -90,4 +90,22 @@ export const DeleteButtonStyled = styled.button`
     margin: 0 auto;
     width: 200px;
   }
+`;
+
+export const NavProduct = styled(NavLink)`
+  color: ${(props) => props.theme.mainColor};
+
+  &.active {
+    color: ${(props) => props.theme.green};
+  }
+`;
+
+export const Logo = styled(Link)`
+  padding: 0.75em img {
+    width: 8rem;
+  }
+`;
+
+export const NavStyled = styled.nav`
+  background-color: ${(props) => props.theme.backgroundColor};
 `;

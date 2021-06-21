@@ -1,16 +1,18 @@
 // Styling
-import { GlobalStyle, ThemeButton } from "./styles";
+import { GlobalStyle, ThemeButton, Logo, NavProduct } from "./styles";
 
-import Home from "./components/Home";
 // Components
+import Home from "./components/Home";
 import ProductList from "./components/ProductList";
-import ProductDetail from "./components/ProductDetail.js";
+import NavBar from "./components/NavBar.js"
+
+//Imports
 import { ThemeProvider } from "styled-components";
 import { useState } from "react";
+import { Route, Switch, Link } from "react-router-dom";
 
 // Data
 import products from "./products";
-import { props } from "bluebird";
 
 const theme = {
   light: {
@@ -29,7 +31,6 @@ const theme = {
 
 function App() {
   const [currentTheme, setCurrentTheme] = useState("light");
-  const [product, setProduct] = useState(null);
   const [_products, setProducts] = useState(products);
 
   const toggleTheme = () =>
@@ -39,30 +40,18 @@ function App() {
     setProducts(_products.filter((product) => product.id !== productID));
   };
 
-  const setView = () => {
-    return product ? (
-      <ProductDetail
-        product={product}
-        setProduct={setProduct}
-        deleteProduct={deleteProduct}
-      />
-    ) : (
-      <ProductList
-        setProduct={setProduct}
-        products={_products}
-        deleteProduct={deleteProduct}
-      />
-    );
-  };
-
   return (
     <ThemeProvider theme={theme[currentTheme]}>
       <GlobalStyle />
-      <ThemeButton onClick={toggleTheme}>
-        {currentTheme === "light" ? "Dark" : "Light"} Mode
-      </ThemeButton>
-      <Home />
-      {setView()}
+      <NavBar toggleTheme={toggleTheme} currentTheme={currentTheme}/>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/products">
+          <ProductList products={_products} deleteProduct={deleteProduct} />
+        </Route>
+      </Switch>
     </ThemeProvider>
   );
 }

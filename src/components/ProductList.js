@@ -3,7 +3,7 @@ import { ListWrapper } from "../styles";
 // Components
 import ProductItem from "./ProductItem";
 import SearchBar from "./SearchBar";
-// Data
+// Imports
 import { useState } from "react";
 
 const ProductList = (props) => {
