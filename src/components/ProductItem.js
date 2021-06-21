@@ -9,7 +9,7 @@ const ProductItem = (props) => {
   return (
     <div>
       <ProductWrapper>
-        <Link to={`/products/${product.sliug}`}>
+        <Link to={`/products/${product.slug}`}>
           <img alt={product.name} src={product.image} />
         </Link>
         <p>{product.name}</p>
