@@ -1,15 +1,15 @@
 // Styling
-import { GlobalStyle, ThemeButton, Logo, NavProduct } from "./styles";
+import { GlobalStyle } from "./styles";
 
 // Components
 import Home from "./components/Home";
 import ProductList from "./components/ProductList";
-import NavBar from "./components/NavBar.js"
+import NavBar from "./components/NavBar.js";
 
 //Imports
 import { ThemeProvider } from "styled-components";
 import { useState } from "react";
-import { Route, Switch, Link } from "react-router-dom";
+import { Route, Switch} from "react-router-dom";
 
 // Data
 import products from "./products";
@@ -43,7 +43,7 @@ function App() {
   return (
     <ThemeProvider theme={theme[currentTheme]}>
       <GlobalStyle />
-      <NavBar toggleTheme={toggleTheme} currentTheme={currentTheme}/>
+      <NavBar toggleTheme={toggleTheme} currentTheme={currentTheme} />
       <Switch>
         <Route exact path="/">
           <Home />

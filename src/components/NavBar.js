@@ -7,7 +7,7 @@ const NavBar = (props) => {
       <div className="container-fluid">
         <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
           <Logo className="navbar-brand" to="/">
-            <img src={logoImg} width="150px" />
+            <img src={logoImg} alt="logo" width="150px" />
           </Logo>
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
