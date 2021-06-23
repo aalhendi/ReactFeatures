@@ -1,23 +1,19 @@
-// Styling
+// Style
 import { ListWrapper } from "../styles";
 // Components
 import ProductItem from "./ProductItem";
 import SearchBar from "./SearchBar";
-// Imports
+// State & Stores
 import { useState } from "react";
+import { observer } from "mobx-react";
+import productStore from "../stores/productStore";
 
-const ProductList = (props) => {
+const ProductList = () => {
   const [query, setQuery] = useState("");
 
-  const productList = props.products
+  const productList = productStore.products
     .filter((product) => product.name.includes(query))
-    .map((product) => (
-      <ProductItem
-        product={product}
-        key={product.id}
-        deleteProduct={props.deleteProduct}
-      />
-    ));
+    .map((product) => <ProductItem product={product} key={product.id} />);
 
   return (
     <>
@@ -27,4 +23,4 @@ const ProductList = (props) => {
   );
 };
 
-export default ProductList;
+export default observer(ProductList);

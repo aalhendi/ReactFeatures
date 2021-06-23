@@ -1,8 +1,11 @@
+//Style
 import { DeleteButtonStyled } from "../../styles.js";
+//State & Store
+import productStore from "../../stores/productStore.js";
 
 const DeleteButton = (props) => {
   const handleDelete = () => {
-    props.deleteProduct(props.productId);
+    productStore.deleteProduct(props.productId);
   };
 
   return (
