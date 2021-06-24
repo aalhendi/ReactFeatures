@@ -4,6 +4,7 @@ import { SubmitButton } from "../styles";
 import Modal from "react-modal";
 //State & Store
 import { useState } from "react";
+import productStore from "../stores/productStore";
 
 const ProductModal = (props) => {
   const [product, setProduct] = useState({
@@ -15,11 +16,11 @@ const ProductModal = (props) => {
 
   const handleChange = (e) => {
     setProduct({ ...product, [e.target.name]: [e.target.value] });
-    console.log(product);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    productStore.createProduct(product);
     props.closeAddModal();
   };
 
