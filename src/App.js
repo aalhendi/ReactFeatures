@@ -1,4 +1,4 @@
-// Styling
+// Style
 import { GlobalStyle } from "./styles";
 // Components
 import Home from "./components/Home";
