@@ -15,7 +15,7 @@ const ProductModal = (props) => {
   });
 
   const handleChange = (e) => {
-    setProduct({ ...product, [e.target.name]: [e.target.value] });
+    setProduct({ ...product, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
