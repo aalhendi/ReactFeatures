@@ -115,3 +115,16 @@ export const AddIcon = styled(FaPlusCircle)`
   color: ${(props) => props.theme.mainColor};
   margin-left: 80%;
 `;
+
+export const SubmitButton = styled.button`
+  margin: 0 auto;
+  display: block;
+  color: ${(props) => props.theme.mainColor};
+  background-color: ${(props) => props.theme.backgroundColor};
+  border-radius: 20px;
+  border: 1px solid;
+
+  &:hover {
+    background-color: lightgreen;
+  }
+`;

@@ -1,3 +1,5 @@
+//Style
+import { SubmitButton } from "../styles";
 //Modal
 import Modal from "react-modal";
 //State & Store
@@ -16,13 +18,18 @@ const ProductModal = (props) => {
     console.log(product);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    props.closeAddModal();
+  };
+
   return (
     <Modal
       isOpen={props.isAddModalOpen}
       onRequestClose={props.closeAddModal}
       contentLabel="Example Modal"
     >
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label>Cookie Name</label>
           <input
@@ -66,6 +73,10 @@ const ProductModal = (props) => {
             onChange={handleChange}
           />
         </div>
+
+        <SubmitButton type="submit" class="btn btn-primary mb-3">
+          Submit
+        </SubmitButton>
       </form>
     </Modal>
   );
