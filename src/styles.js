@@ -1,5 +1,6 @@
 import styled, { createGlobalStyle } from "styled-components";
 import { Link, NavLink } from "react-router-dom";
+import { FaPlusCircle } from "react-icons/fa";
 
 export const Description = styled.h4`
   text-align: center;
@@ -108,4 +109,9 @@ export const Logo = styled(Link)`
 export const NavStyled = styled.nav`
   background-color: ${(props) => props.theme.backgroundColor};
   }
+`;
+
+export const AddIcon = styled(FaPlusCircle)`
+  color: ${(props) => props.theme.mainColor};
+  margin-left: 80%;
 `;
