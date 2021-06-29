@@ -1,17 +1,33 @@
 //Imports
 import slugify from "react-slugify";
-//Data
-import products from "../products";
 //State & Store
 import { makeAutoObservable } from "mobx";
+import axios from "axios";
 
 class ProductStore {
-  products = products;
+  products = [];
   constructor() {
     makeAutoObservable(this);
   }
-  deleteProduct = (productID) => {
-    this.products = this.products.filter((product) => product.id !== productID);
+
+  fetchProducts = async () => {
+    const res = await axios.get("http://localhost:8000/products");
+    try {
+      this.products = res.data;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  deleteProduct = async (productID) => {
+    try {
+      await axios.delete(`http://localhost:8000/products/${productID}`);
+      this.products = this.products.filter(
+        (product) => product.id !== productID
+      );
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   createProduct = (newProduct) => {
@@ -36,5 +52,6 @@ class ProductStore {
 }
 
 const productStore = new ProductStore();
+productStore.fetchProducts();
 
 export default productStore;
