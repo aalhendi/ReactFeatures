@@ -12,14 +12,14 @@ import productStore from "../stores/productStore";
 
 const ProductList = () => {
   const [query, setQuery] = useState("");
-  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const openAddModal = () => {
-    setIsAddModalOpen(true);
+  const openModal = () => {
+    setIsModalOpen(true);
   };
 
-  const closeAddModal = () => {
-    setIsAddModalOpen(false);
+  const closeModal = () => {
+    setIsModalOpen(false);
   };
 
   const productList = productStore.products
@@ -29,11 +29,8 @@ const ProductList = () => {
   return (
     <>
       <SearchBar setQuery={setQuery} />
-      <AddIcon size="2em" onClick={openAddModal} />
-      <ProductModal
-        isAddModalOpen={isAddModalOpen}
-        closeAddModal={closeAddModal}
-      />
+      <AddIcon size="2em" onClick={openModal} />
+      <ProductModal isModalOpen={isModalOpen} closeModal={closeModal} />
       <ListWrapper>{productList}</ListWrapper>
     </>
   );

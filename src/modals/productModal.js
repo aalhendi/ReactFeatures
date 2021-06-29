@@ -1,5 +1,5 @@
 //Style
-import { SubmitButton, UpdateButton } from "../styles";
+import { SubmitButton } from "../styles";
 //Modal
 import Modal from "react-modal";
 //State & Store
@@ -29,13 +29,13 @@ const ProductModal = (props) => {
     } else {
       productStore.createProduct(product);
     }
-    props.closeAddModal();
+    props.closeModal();
   };
 
   return (
     <Modal
-      isOpen={props.isAddModalOpen}
-      onRequestClose={props.closeAddModal}
+      isOpen={props.isModalOpen}
+      onRequestClose={props.closeModal}
       contentLabel="Example Modal"
     >
       <form onSubmit={handleSubmit}>

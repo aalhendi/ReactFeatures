@@ -22,8 +22,8 @@ class ProductStore {
     });
   };
 
-  productUpdate = (updateProduct) => {
-    const product = this.product.find(
+  updateProduct = (updateProduct) => {
+    const product = this.products.find(
       (product) => product.id === updateProduct.id
     );
     product.name = updateProduct.name;
